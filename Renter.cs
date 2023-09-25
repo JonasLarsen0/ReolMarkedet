@@ -8,11 +8,12 @@ namespace ReolMarkedet
 {
     public class Renter
     {
-        renterID int;
-            renterName string;
-            renterEmail string;
-            renterPhone int;
-            renterBankAccountDetails int;
+        int renterID;
+        string Name;
+        int Phonenumber;
+        string Email;
+        int BankAccountDetalis;
+
 
     }
 }
