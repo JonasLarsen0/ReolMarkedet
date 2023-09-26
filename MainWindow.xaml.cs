@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Data.SqlClient;
 using ReolMarkedet.Application;
 
 namespace ReolMarkedet
@@ -31,9 +33,26 @@ namespace ReolMarkedet
 
         private void CreateRenter_Click(object sender, RoutedEventArgs e)
         {
-
+            
             renterRepository.CreateRenter(nameTextBox.Text, tlfNrTextBox.Text, emailTextBox.Text, regnrTextBox.Text+kontoNrTextBox.Text);
+
+            using (SqlConnection con = new SqlConnection(renterRepository.ConnectionString)) 
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand($"spAddRenter", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RenterName", nameTextBox.Text);
+                cmd.Parameters.AddWithValue("@PhoneNumber", tlfNrTextBox.Text);
+                cmd.Parameters.AddWithValue("@Email", emailTextBox.Text);
+                cmd.Parameters.AddWithValue("@BankAccountDetails", regnrTextBox.Text + kontoNrTextBox.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+            }
             ClearTextBoxes();
+
+
+
         }
         private void ClearTextBoxes()
         {
