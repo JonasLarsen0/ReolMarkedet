@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ReolMarkedet.Application;
 
 namespace ReolMarkedet
 {
@@ -25,9 +26,37 @@ namespace ReolMarkedet
             InitializeComponent();
                       
         }
+        RenterRepository renterRepository = new RenterRepository();
 
+
+        private void CreateRenter_Click(object sender, RoutedEventArgs e)
+        {
+
+            renterRepository.CreateRenter(nameTextBox.Text, tlfNrTextBox.Text, emailTextBox.Text, regnrTextBox.Text+kontoNrTextBox.Text);
+            ClearTextBoxes();
+        }
+        private void ClearTextBoxes()
+        {
+            nameTextBox.Clear();
+            tlfNrTextBox.Clear();
+            emailTextBox.Clear();
+            regnrTextBox.Clear();
+            kontoNrTextBox.Clear();
+        }
+
+        private void UpdateRenterButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
     public class ControllerClass
+    {
+    
+        public void test()
+        {
+
+        }
+    }
     
    }

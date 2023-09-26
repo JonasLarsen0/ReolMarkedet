@@ -6,7 +6,57 @@
         xmlns:local="clr-namespace:ReolMarkedet"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid RenderTransformOrigin="0.502,0.417">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="267" />
+            <RowDefinition Height="Auto" MinHeight="115.117" />
+        </Grid.RowDefinitions>
 
+        <!-- Header -->
+        <TextBlock Text="ReolMarkedet" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,10" Width="158" />
+
+
+        <!-- Items List -->
+        <ListView x:Name="renterListView" Grid.Row="1" Margin="10,10,10,10" Background="White">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Navn" Width="200" DisplayMemberBinding="{Binding name}"/>
+                    <GridViewColumn Header="Tlf" Width="100" DisplayMemberBinding="{Binding phonenumber}"/>
+                    <GridViewColumn Header="Email" Width="250" DisplayMemberBinding="{Binding Email}"/>
+                    <GridViewColumn Header="Reg. nr." Width="50" DisplayMemberBinding="{Binding Regnr}"/>
+                    <GridViewColumn Header="Konto nr." Width="150" DisplayMemberBinding="{Binding Kontonr}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+
+        <!-- Item Details and Buttons -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="240,261,0,0" Width="316" Grid.RowSpan="2">
+            <StackPanel Margin="10">
+                <TextBox x:Name="nameTextBox" Width="180" Height="18" />
+                <TextBox x:Name="regnrTextBox" Width="180" Height="18" />
+                <TextBox x:Name="kontoNrTextBox" Width="180" Height="18" />
+                <TextBox x:Name="tlfNrTextBox" Width="180" Height="18" />
+                <TextBox x:Name="emailTextBox" Width="180" Height="18" />
+            </StackPanel>
+
+            <StackPanel Margin="10" Height="84">
+                <Button Content="Opret lejer" Click="CreateRenter_Click" Width="100" />
+                <!--<button content="opdater" click="updaterenterbutton_click" width="100" />
+                <button content="slet lejer" click="updaterenterbutton_click" width="100" />-->
+            </StackPanel>
+        </StackPanel>
+        <Label Content="Navn:" FontSize="10" HorizontalAlignment="Left" Margin="211,3,0,0" Grid.Row="2" VerticalAlignment="Top" Height="22" Width="35"/>
+        <Label Content="Konto nr.:" FontSize="10" HorizontalAlignment="Left" Margin="194,38,0,0" Grid.Row="2" VerticalAlignment="Top" Width="62" Height="23"/>
+        <Label Content="Reg. nr.:" FontSize="10" HorizontalAlignment="Left" Margin="202,22,0,0" Grid.Row="2" VerticalAlignment="Top" Width="62" Height="23"/>
+        <Label Content="Tlf. nr.:" FontSize="10"  HorizontalAlignment="Left" Margin="207,57,0,0" Grid.Row="2" VerticalAlignment="Top" Height="23" Width="39"/>
+        <Label Content="Email:" FontSize="10" HorizontalAlignment="Left" Margin="211,74,0,0" Grid.Row="2" VerticalAlignment="Top" Width="49" RenderTransformOrigin="-0.034,0.424" Height="23"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="18" Margin="190,22,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="54"/>
+        <Rectangle HorizontalAlignment="Left" Height="18" Margin="190,59,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="54"/>
+        <Rectangle HorizontalAlignment="Left" Height="18" Margin="190,41,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="54"/>
+        <Rectangle HorizontalAlignment="Left" Height="18" Margin="190,77,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="54" RenderTransformOrigin="0,0.438"/>
+        <Rectangle HorizontalAlignment="Left" Height="19" Margin="190,3,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="54"/>
     </Grid>
 </Window>
