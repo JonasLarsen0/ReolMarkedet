@@ -75,7 +75,5 @@ namespace ReolMarkedet
         public void test()
         {
 
-        }
-    }
     
    }
