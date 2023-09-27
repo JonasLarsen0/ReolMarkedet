@@ -28,15 +28,15 @@ namespace ReolMarkedet
             InitializeComponent();
                       
         }
-        RenterRepository renterRepository = new RenterRepository();
+        Controller controller = new Controller();
 
 
         private void CreateRenter_Click(object sender, RoutedEventArgs e)
         {
             
-            renterRepository.CreateRenter(nameTextBox.Text, tlfNrTextBox.Text, emailTextBox.Text, regnrTextBox.Text+kontoNrTextBox.Text);
+            controller.AddRenter(nameTextBox.Text, tlfNrTextBox.Text, emailTextBox.Text, regnrTextBox.Text+kontoNrTextBox.Text);
 
-            using (SqlConnection con = new SqlConnection(renterRepository.ConnectionString)) 
+            using (SqlConnection con = new SqlConnection(controller.ConnectionString)) 
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand($"spAddRenter", con);
@@ -69,11 +69,6 @@ namespace ReolMarkedet
         }
     }
 
-    public class ControllerClass
-    {
     
-        public void test()
-        {
-
     
    }

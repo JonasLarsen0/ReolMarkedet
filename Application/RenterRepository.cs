@@ -16,11 +16,10 @@ namespace ReolMarkedet.Application
 
     public class RenterRepository
     {
-        public string ConnectionString;
+        
             public RenterRepository() 
         {
-            IConfigurationRoot config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-            ConnectionString = config.GetConnectionString("MyDBConnection");
+            
         }
     //connectionstring
 
@@ -28,7 +27,7 @@ namespace ReolMarkedet.Application
 
     
 
-        List<Renter> renterList = new List<Renter>();
+         private List<Renter> renterList = new List<Renter>();
         //Add metode
         public void CreateRenter(string name, string phoneNumber, string Email, string bankAccountDetails)
         {
@@ -37,6 +36,7 @@ namespace ReolMarkedet.Application
             Renter r = new Renter(name, phoneNumber, Email, bankAccountDetails);
             renterList.Add(r);
         }
+        
         
         
 
