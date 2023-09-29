@@ -21,13 +21,11 @@ namespace ReolMarkedet.Application
         {
             
         }
-    //connectionstring
-
     
 
-    
 
          private List<Renter> renterList = new List<Renter>();
+
         //Add metode
         public void CreateRenter(string name, string phoneNumber, string Email, string bankAccountDetails)
         {

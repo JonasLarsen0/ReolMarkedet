@@ -51,9 +51,8 @@ namespace ReolMarkedet
             }
             ClearTextBoxes();
 
-
-
         }
+
         private void ClearTextBoxes()
         {
             nameTextBox.Clear();
@@ -63,10 +62,6 @@ namespace ReolMarkedet
             kontoNrTextBox.Clear();
         }
 
-        private void UpdateRenterButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 
     

@@ -13,6 +13,7 @@ namespace ReolMarkedet.Application
     {
         public string ConnectionString;
         RenterRepository renterRepo;
+        
         public Controller() 
         { renterRepo = new RenterRepository();
             IConfigurationRoot config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
